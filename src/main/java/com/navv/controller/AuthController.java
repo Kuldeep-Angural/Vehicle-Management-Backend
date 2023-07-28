@@ -65,9 +65,8 @@ public class AuthController {
     )
     public ResponseEntity<?> addUser(@RequestParam("image") MultipartFile image, @RequestBody RegisterRequest request
     ) {
-        System.out.println(request.getEmail());
         String name = image.getOriginalFilename();
-        System.out.println(name);
+       
 
         makeDirectoryIfNotExist(imageDirectory);
         Path fileNamePath = Paths.get(imageDirectory,
@@ -155,7 +154,7 @@ public class AuthController {
         makeDirectoryIfNotExist(imageDirectory);
         Path fileNamePath = Paths.get(imageDirectory,
                file.getOriginalFilename());
-        System.out.println(fileNamePath);
+        
 
         try {
             Files.write(fileNamePath, file.getBytes());
